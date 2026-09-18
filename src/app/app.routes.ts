@@ -18,8 +18,16 @@ export const routes: Routes = [
   {
     path: 'campaigns',
     loadComponent: () =>
-      import('./shared/ui/coming-soon/coming-soon.component').then((m) => m.ComingSoonComponent),
-    data: { title: 'Campaigns' },
+      import('./features/donations/campaigns/campaign-list.component').then(
+        (m) => m.CampaignListComponent,
+      ),
+  },
+  {
+    path: 'campaigns/:campaignId',
+    loadComponent: () =>
+      import('./features/donations/campaigns/campaign-detail.component').then(
+        (m) => m.CampaignDetailComponent,
+      ),
   },
   {
     path: 'login',
@@ -94,6 +102,30 @@ export const routes: Routes = [
         canActivate: [alumnusLinkedGuard],
         loadComponent: () =>
           import('./features/jobs/postings/job-detail.component').then((m) => m.JobDetailComponent),
+      },
+      {
+        path: 'donations',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/donations/history/donation-history.component').then(
+            (m) => m.DonationHistoryComponent,
+          ),
+      },
+      {
+        path: 'donations/new/:campaignId',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/donations/payment/donation-amount.component').then(
+            (m) => m.DonationAmountComponent,
+          ),
+      },
+      {
+        path: 'donations/:donationId/confirming',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/donations/payment/donation-confirming.component').then(
+            (m) => m.DonationConfirmingComponent,
+          ),
       },
     ],
   },

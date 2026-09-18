@@ -1,0 +1,33 @@
+<section class="alw-campaigns">
+  <h1>{{ 'donations.campaigns.title' | translate }}</h1>
+
+  @if (store.error()) {
+    <p role="alert">{{ store.error() }}</p>
+  }
+
+  @if (!store.isLoading() && store.items().length === 0) {
+    <ums-empty-state title="No campaigns are open right now" />
+  }
+
+  <ul class="alw-campaigns__grid">
+    @for (campaign of store.items(); track campaign.id) {
+      <li>
+        <a class="alw-campaigns__card" [routerLink]="['/campaigns', campaign.id]">
+          <div class="alw-campaigns__title-row">
+            <h2>{{ campaign.name }}</h2>
+            @if (!isCampaignActive(campaign)) {
+              <ums-badge variant="neutral">Closed</ums-badge>
+            }
+          </div>
+          @if (campaign.description) {
+            <p>{{ campaign.description }}</p>
+          }
+          <p class="alw-campaigns__goal">Goal: {{ campaign.goalAmount }} {{ campaign.currency }}</p>
+          <p class="alw-campaigns__unavailable">
+            {{ 'donations.progress.unavailable' | translate }}
+          </p>
+        </a>
+      </li>
+    }
+  </ul>
+</section>

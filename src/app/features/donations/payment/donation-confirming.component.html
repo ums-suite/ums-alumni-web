@@ -1,0 +1,35 @@
+@if (notFound()) {
+  <section class="alw-confirming alw-confirming--not-found">
+    <h1>We couldn't find that donation</h1>
+    <p>Check your donation history to see its current status.</p>
+    <a routerLink="/app/donations">
+      <ums-button type="button" variant="primary">{{
+        'donations.history.title' | translate
+      }}</ums-button>
+    </a>
+  </section>
+} @else if (isConfirmed()) {
+  <section class="alw-confirming alw-confirming--success" role="status">
+    <h1>{{ 'donations.success.title' | translate }}</h1>
+    <p>{{ 'donations.success.body' | translate }}</p>
+    <a routerLink="/app/donations">
+      <ums-button type="button" variant="primary">{{
+        'donations.history.title' | translate
+      }}</ums-button>
+    </a>
+  </section>
+} @else if (isFailed()) {
+  <section class="alw-confirming alw-confirming--failed" role="alert">
+    <h1>{{ 'donations.failed.title' | translate }}</h1>
+    <p>{{ 'donations.failed.body' | translate }}</p>
+    <a routerLink="/campaigns">
+      <ums-button type="button" variant="secondary">{{ 'common.retry' | translate }}</ums-button>
+    </a>
+  </section>
+} @else {
+  <section class="alw-confirming alw-confirming--waiting" role="status" aria-live="polite">
+    <div class="alw-confirming__spinner" aria-hidden="true"></div>
+    <h1>{{ 'donations.confirming.title' | translate }}</h1>
+    <p>{{ 'donations.confirming.body' | translate }}</p>
+  </section>
+}

@@ -1,0 +1,29 @@
+:host {
+  display: block;
+  padding: var(--space-8, 2rem) var(--space-6, 1.5rem);
+  max-inline-size: 40rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+h1 {
+  font-family: var(--font-family-display, 'Fraunces', serif);
+  font-size: var(--type-display-1-font-size, 3.5rem);
+}
+
+.alw-campaign-detail__description {
+  font-size: var(--type-heading-3-font-size, 1.125rem);
+  color: var(--color-text-muted, var(--color-text));
+}
+
+.alw-campaign-detail__goal {
+  font-weight: 600;
+  color: var(--color-accent-text);
+  font-size: var(--type-heading-2-font-size, 1.5rem);
+}
+
+.alw-campaign-detail__unavailable {
+  font-size: var(--type-caption-font-size, 0.875rem);
+  color: var(--color-text-muted, var(--color-text));
+  margin-block-end: var(--space-6, 1.5rem);
+}

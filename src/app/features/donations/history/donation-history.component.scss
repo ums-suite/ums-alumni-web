@@ -1,0 +1,48 @@
+:host {
+  display: block;
+  padding: var(--space-6, 1.5rem);
+}
+
+h1 {
+  font-family: var(--font-family-display, 'Fraunces', serif);
+}
+
+.alw-history__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 0.75rem);
+}
+
+.alw-history__row {
+  padding: var(--space-4, 1rem);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-alt);
+}
+
+.alw-history__row-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 0.5rem);
+  font-weight: 600;
+}
+
+.alw-history__meta {
+  margin: var(--space-1, 0.25rem) 0;
+  font-size: var(--type-caption-font-size, 0.875rem);
+  color: var(--color-text-muted, var(--color-text));
+}
+
+.alw-history__receipt-note {
+  font-size: var(--type-caption-font-size, 0.875rem);
+  color: var(--color-text-muted, var(--color-text));
+}
+
+.alw-history__paused {
+  padding: var(--space-3, 0.75rem);
+  border-radius: var(--radius-md);
+  background: var(--color-warning-surface, #fff7e6);
+  color: var(--color-warning-text, #92600c);
+  margin-block-start: var(--space-2, 0.5rem);
+}
