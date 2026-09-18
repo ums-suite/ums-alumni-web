@@ -1,0 +1,59 @@
+<section class="alw-history">
+  <h1>{{ 'donations.history.title' | translate }}</h1>
+
+  @if (store.error()) {
+    <p role="alert">{{ store.error() }}</p>
+  }
+
+  @if (!store.isLoading() && store.items().length === 0) {
+    <ums-empty-state title="You haven't made any donations yet" />
+  }
+
+  <ul class="alw-history__list">
+    @for (donation of store.items(); track donation.id) {
+      <li class="alw-history__row">
+        <div class="alw-history__row-header">
+          <span>{{ donation.amount }} {{ donation.currency }}</span>
+          <ums-badge [variant]="statusVariant(donation.status)">{{ donation.status }}</ums-badge>
+          @if (donation.isAnonymous) {
+            <ums-badge variant="neutral">Anonymous</ums-badge>
+          }
+        </div>
+        <p class="alw-history__meta">{{ donation.createdAt | date }}</p>
+
+        @if (donation.status === 'Confirmed') {
+          <p class="alw-history__receipt-note">
+            A receipt has been generated for this donation and is on file with our records.
+          </p>
+        }
+
+        @if (isRecurringSeriesRoot(donation)) {
+          @if (donation.recurrenceStatus === 'Paused') {
+            <div class="alw-history__paused" role="status">
+              <p>{{ 'donations.recurring.paused.title' | translate }}</p>
+              <p>{{ 'donations.recurring.paused.body' | translate }}</p>
+              <ums-button
+                type="button"
+                variant="primary"
+                [loading]="store.mutatingId() === donation.id"
+                (click)="store.resumeRecurring(donation.id)"
+              >
+                {{ 'donations.recurring.resume' | translate }}
+              </ums-button>
+            </div>
+          } @else if (donation.recurrenceStatus === 'Active') {
+            <ums-button
+              type="button"
+              variant="secondary"
+              size="sm"
+              [loading]="store.mutatingId() === donation.id"
+              (click)="store.cancelRecurring(donation.id)"
+            >
+              {{ 'donations.recurring.cancel' | translate }}
+            </ums-button>
+          }
+        }
+      </li>
+    }
+  </ul>
+</section>

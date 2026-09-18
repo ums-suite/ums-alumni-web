@@ -1,0 +1,66 @@
+:host {
+  display: block;
+  padding: var(--space-8, 2rem) var(--space-6, 1.5rem);
+  max-inline-size: 32rem;
+  margin-inline: auto;
+}
+
+h1 {
+  font-family: var(--font-family-display, 'Fraunces', serif);
+  font-size: var(--type-display-2-font-size, 2.5rem);
+}
+
+.alw-donation-amount__campaign {
+  font-weight: 600;
+}
+
+.alw-donation-amount__impact {
+  color: var(--color-text-muted, var(--color-text));
+}
+
+.alw-donation-amount__presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2, 0.5rem);
+  margin-block-end: var(--space-4, 1rem);
+}
+
+.alw-donation-amount__preset {
+  padding: var(--space-2, 0.5rem) var(--space-4, 1rem);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  cursor: pointer;
+  font: inherit;
+}
+
+.alw-donation-amount__preset--selected {
+  border-color: var(--color-secondary);
+  background: var(--color-secondary);
+  color: var(--color-on-secondary);
+}
+
+.alw-donation-amount__check {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 0.5rem);
+  margin-block: var(--space-3, 0.75rem);
+  font-size: var(--type-caption-font-size, 0.875rem);
+}
+
+.alw-donation-amount__disclosure {
+  font-size: var(--type-caption-font-size, 0.875rem);
+  color: var(--color-text-muted, var(--color-text));
+  margin-block: var(--space-4, 1rem);
+}
+
+.alw-donation-amount__closed {
+  padding: var(--space-4, 1rem);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-alt);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,83 @@
+<section class="alw-directory">
+  <h1>{{ 'directory.title' | translate }}</h1>
+
+  <form class="alw-directory__filters" (submit)="$event.preventDefault(); search()">
+    <label for="directory-graduation-year">
+      {{ 'directory.filter.graduationYear' | translate }}
+      <ums-input
+        id="directory-graduation-year"
+        [value]="graduationYear()"
+        (valueChange)="graduationYear.set($event)"
+        type="number"
+        placeholder="e.g. 2020"
+      />
+    </label>
+    <label for="directory-location">
+      {{ 'directory.filter.location' | translate }}
+      <ums-input
+        id="directory-location"
+        [value]="location()"
+        (valueChange)="location.set($event)"
+      />
+    </label>
+    <label for="directory-employer">
+      Employer
+      <ums-input
+        id="directory-employer"
+        [value]="employer()"
+        (valueChange)="employer.set($event)"
+      />
+    </label>
+    <ums-button type="submit" variant="primary" [loading]="store.isLoading()">Search</ums-button>
+  </form>
+
+  @if (store.error()) {
+    <p role="alert">{{ store.error() }}</p>
+  }
+
+  @if (!store.isLoading() && groups().length === 0) {
+    <ums-empty-state title="{{ 'directory.empty' | translate }}" />
+  }
+
+  @for (group of groups(); track group.year) {
+    <section class="alw-directory__group">
+      <h2>{{ 'directory.classOf' | translate: { year: group.year } }}</h2>
+      <ul class="alw-directory__grid">
+        @for (entry of group.entries; track entry.id) {
+          <li class="alw-directory__card">
+            <div class="alw-directory__crest">
+              <ums-avatar [name]="'Class of ' + group.year" size="lg" />
+            </div>
+            @if (entry.currentEmployer) {
+              <p class="alw-directory__employer">{{ entry.currentEmployer }}</p>
+            }
+            @if (entry.location) {
+              <p class="alw-directory__location">{{ entry.location }}</p>
+            }
+            @if (hasContactChannel(entry)) {
+              <a
+                class="alw-directory__connect"
+                [href]="
+                  entry.contactEmail ? 'mailto:' + entry.contactEmail : 'tel:' + entry.contactPhone
+                "
+              >
+                {{ 'directory.connect' | translate }}
+              </a>
+            }
+          </li>
+        }
+      </ul>
+    </section>
+  }
+
+  @if (store.items().length > 0) {
+    <ums-button
+      type="button"
+      variant="tertiary"
+      [loading]="store.isLoading()"
+      (click)="store.loadMore()"
+    >
+      Load more
+    </ums-button>
+  }
+</section>

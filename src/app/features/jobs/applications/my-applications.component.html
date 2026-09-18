@@ -1,0 +1,23 @@
+<section class="alw-my-applications">
+  <h1>My applications</h1>
+
+  @if (entries().length === 0) {
+    <ums-empty-state title="You haven't applied to any postings yet" />
+  }
+
+  <ul>
+    @for (entry of entries(); track entry.jobId) {
+      <li>
+        <a [routerLink]="['/app/jobs', entry.jobId]">
+          {{ entry.posting?.title ?? entry.jobId }}
+        </a>
+        @if (isClosed(entry.posting?.status)) {
+          <span class="alw-my-applications__closed">Posting closed</span>
+        }
+        <p class="alw-my-applications__submitted">
+          Submitted {{ entry.application.submittedAt | date }}
+        </p>
+      </li>
+    }
+  </ul>
+</section>

@@ -1,0 +1,81 @@
+export const EN_DICTIONARY: Record<string, string> = {
+  'nav.directory': 'Directory',
+  'nav.jobs': 'Job Board',
+  'nav.donations': 'Give',
+  'nav.mentorship': 'Mentorship',
+  'nav.events': 'Events',
+  'nav.chapters': 'Chapters',
+  'nav.stories': 'Success Stories',
+  'nav.profile': 'My Profile',
+  'nav.login': 'Log In',
+  'nav.logout': 'Log Out',
+
+  'directory.title': 'Alumni Directory',
+  'directory.classOf': 'Class of {year}',
+  'directory.filter.graduationYear': 'Graduation Year',
+  'directory.filter.program': 'Program',
+  'directory.filter.location': 'Location',
+  'directory.filter.industry': 'Industry',
+  'directory.empty': 'No alumni match your filters yet.',
+  'directory.connect': 'Connect',
+  'directory.hiddenProfile': 'This alumnus has chosen not to appear in directory search.',
+
+  'profile.visibility.title': 'Profile Visibility',
+  'profile.visibility.global.title': 'Hide my profile from directory search',
+  'profile.visibility.global.hint':
+    'A separate, all-or-nothing switch from the per-field controls below -- turning this on removes you from directory search entirely.',
+  'profile.visibility.field.email': 'Email address',
+  'profile.visibility.field.phone': 'Phone number',
+  'profile.visibility.field.employer': 'Current employer',
+  'profile.visibility.field.location': 'Location',
+  'profile.visibility.saved': 'Visibility settings saved.',
+  'profile.pendingVerification':
+    'Your profile is awaiting admin verification and will not appear in directory search until approved.',
+
+  'jobs.title': 'Job Board',
+  'jobs.verifiedBadge': 'Verified Employer',
+  'jobs.pendingModeration': 'Pending moderation -- not yet publicly visible',
+  'jobs.apply': 'Apply Now',
+  'jobs.applied': 'Applied',
+  'jobs.application.viewed': 'Viewed by employer',
+  'jobs.application.notViewed': 'Not yet viewed',
+  'jobs.posting.closed': 'This posting has closed',
+
+  'donations.campaigns.title': 'Campaigns',
+  'donations.progress.raised': '{amount} raised of {goal} goal',
+  'donations.progress.donors': '{count} donors',
+  'donations.progress.unavailable': 'Live progress data is not yet available for this campaign.',
+  'donations.amount.title': 'Choose an amount',
+  'donations.amount.impact': 'This gift helps fund real scholarships and programs.',
+  'donations.fee.disclosure':
+    'Your donation is processed by our payment gateway. No card or mobile-banking details are ever stored by this site.',
+  'donations.anonymous.label':
+    'Make this donation anonymous (hides your name from public display only)',
+  'donations.recurring.label': 'Make this a recurring donation',
+  'donations.recurring.interval': 'Frequency',
+  'donations.confirming.title': 'Confirming your payment',
+  'donations.confirming.body':
+    'We are verifying your payment with the gateway. This will only take a moment -- please don’t close this page.',
+  'donations.success.title': 'Thank you for your generosity',
+  'donations.success.body':
+    'Your donation has been confirmed. A receipt will be available in your donation history.',
+  'donations.failed.title': 'We couldn’t confirm this payment',
+  'donations.failed.body':
+    'The gateway reported this payment did not succeed. No charge was completed.',
+  'donations.campaignClosed.title': 'This campaign has closed',
+  'donations.campaignClosed.body':
+    'This campaign is no longer accepting new donations. You can give to our general fund instead.',
+  'donations.history.title': 'My Donations',
+  'donations.recurring.paused.title': 'Payment method needs updating',
+  'donations.recurring.paused.body':
+    'Your recurring donation is paused because a recent charge did not go through.',
+  'donations.recurring.resume': 'Resume giving',
+  'donations.recurring.cancel': 'Cancel recurring donation',
+
+  'common.loading': 'Loading...',
+  'common.error.generic': 'Something went wrong. Please try again.',
+  'common.retry': 'Retry',
+  'common.save': 'Save',
+  'common.cancel': 'Cancel',
+  'common.submit': 'Submit',
+};

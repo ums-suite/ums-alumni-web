@@ -1,0 +1,87 @@
+@if (campaigns.selected(); as campaign) {
+  <section class="alw-donation-amount">
+    <h1>{{ 'donations.amount.title' | translate }}</h1>
+    <p class="alw-donation-amount__campaign">For {{ campaign.name }}</p>
+    @if (campaign.description) {
+      <p class="alw-donation-amount__impact">{{ campaign.description }}</p>
+    }
+
+    @if (campaignClosed()) {
+      <div class="alw-donation-amount__closed" role="alert">
+        <p>{{ 'donations.campaignClosed.title' | translate }}</p>
+        <p>{{ 'donations.campaignClosed.body' | translate }}</p>
+        <a routerLink="/campaigns">Browse other campaigns</a>
+      </div>
+    } @else {
+      <form (submit)="$event.preventDefault(); submit()">
+        <div class="alw-donation-amount__presets">
+          @for (preset of presetAmounts; track preset) {
+            <button
+              type="button"
+              class="alw-donation-amount__preset"
+              [class.alw-donation-amount__preset--selected]="amount() === preset"
+              (click)="selectPreset(preset)"
+            >
+              {{ preset }} {{ campaign.currency }}
+            </button>
+          }
+        </div>
+
+        <ums-form-field label="Custom amount">
+          <ums-input
+            type="number"
+            [value]="amount().toString()"
+            (valueChange)="amount.set($event ? +$event : 0)"
+          />
+        </ums-form-field>
+
+        <label class="alw-donation-amount__check">
+          <input
+            type="checkbox"
+            [checked]="isRecurring()"
+            (change)="isRecurring.set($any($event.target).checked)"
+          />
+          {{ 'donations.recurring.label' | translate }}
+        </label>
+
+        @if (isRecurring()) {
+          <ums-form-field label="{{ 'donations.recurring.interval' | translate }}">
+            <ums-select
+              [options]="recurrenceOptions"
+              [value]="recurrenceInterval()"
+              (valueChange)="recurrenceInterval.set($any($event))"
+            />
+          </ums-form-field>
+        }
+
+        <label class="alw-donation-amount__check">
+          <input
+            type="checkbox"
+            [checked]="isAnonymous()"
+            (change)="isAnonymous.set($any($event.target).checked)"
+          />
+          {{ 'donations.anonymous.label' | translate }}
+        </label>
+
+        <p class="alw-donation-amount__disclosure">{{ 'donations.fee.disclosure' | translate }}</p>
+
+        @if (errorMessage()) {
+          <p role="alert">{{ errorMessage() }}</p>
+        }
+
+        <ums-button
+          type="submit"
+          variant="primary"
+          [loading]="flow.submitting()"
+          [disabled]="flow.submitting()"
+        >
+          Continue to payment
+        </ums-button>
+      </form>
+    }
+  </section>
+} @else if (campaigns.error()) {
+  <p role="alert">{{ campaigns.error() }}</p>
+} @else {
+  <p>{{ 'common.loading' | translate }}</p>
+}

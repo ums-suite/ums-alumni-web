@@ -1,0 +1,24 @@
+:host {
+  display: block;
+  padding: var(--space-6, 1.5rem);
+  max-inline-size: 40rem;
+  margin-inline: auto;
+}
+
+h1 {
+  font-family: var(--font-family-display, 'Fraunces', serif);
+}
+
+.alw-job-detail__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 0.5rem);
+  flex-wrap: wrap;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 0.75rem);
+  margin-block-start: var(--space-4, 1rem);
+}

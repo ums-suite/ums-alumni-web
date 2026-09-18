@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+}
+
+img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--motion-base, 200ms) var(--ease-standard, ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  img {
+    transition: none;
+  }
+}
+
+:host(.alw-responsive-image--loaded) img {
+  opacity: 1;
+}
+
+:host(.alw-responsive-image--errored) img {
+  display: none;
+}

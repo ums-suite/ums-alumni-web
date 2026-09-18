@@ -1,0 +1,25 @@
+@if (store.isLoading()) {
+  <p>{{ 'common.loading' | translate }}</p>
+} @else if (store.selected(); as campaign) {
+  <section class="alw-campaign-detail">
+    <h1>{{ campaign.name }}</h1>
+    @if (campaign.description) {
+      <p class="alw-campaign-detail__description">{{ campaign.description }}</p>
+    }
+    <p class="alw-campaign-detail__goal">Goal: {{ campaign.goalAmount }} {{ campaign.currency }}</p>
+    <p class="alw-campaign-detail__unavailable">
+      {{ 'donations.progress.unavailable' | translate }}
+    </p>
+
+    @if (isActive()) {
+      <ums-button type="button" variant="primary" (click)="donate()">Donate</ums-button>
+    } @else {
+      <p role="status">{{ 'donations.campaignClosed.title' | translate }}</p>
+      <p>
+        <a routerLink="/campaigns">{{ 'donations.campaignClosed.body' | translate }}</a>
+      </p>
+    }
+  </section>
+} @else if (store.error()) {
+  <p role="alert">{{ store.error() }}</p>
+}

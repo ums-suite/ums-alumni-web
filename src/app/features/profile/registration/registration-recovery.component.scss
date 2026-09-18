@@ -1,0 +1,20 @@
+:host {
+  display: block;
+}
+
+.alw-recovery {
+  max-inline-size: 32rem;
+  margin-inline: auto;
+  padding: var(--space-8, 2rem) var(--space-4, 1rem);
+  text-align: center;
+
+  h1 {
+    font-family: var(--font-family-display, 'Fraunces', serif);
+    margin-block-end: var(--space-4, 1rem);
+  }
+
+  p {
+    color: var(--color-text-muted, var(--color-text));
+    margin-block-end: var(--space-4, 1rem);
+  }
+}

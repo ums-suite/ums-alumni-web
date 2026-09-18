@@ -1,0 +1,33 @@
+<section class="alw-jobs">
+  <header class="alw-jobs__header">
+    <h1>{{ 'jobs.title' | translate }}</h1>
+    <ums-button type="button" variant="primary" (click)="postJob()">Post a job</ums-button>
+  </header>
+
+  <label for="job-search">Search by role, company, or location</label>
+  <ums-input id="job-search" [value]="query()" (valueChange)="query.set($event)" />
+
+  @if (store.error()) {
+    <p role="alert">{{ store.error() }}</p>
+  }
+
+  @if (!store.isLoading() && filtered().length === 0) {
+    <ums-empty-state title="No open postings match your search" />
+  }
+
+  <ul class="alw-jobs__list">
+    @for (job of filtered(); track job.id) {
+      <li>
+        <button type="button" class="alw-jobs__card" (click)="viewJob(job.id)">
+          <div class="alw-jobs__title-row">
+            <h2>{{ job.title }}</h2>
+            @if (isVerifiedEmployer(job.posterIsAlumnus)) {
+              <ums-badge variant="success">{{ 'jobs.verifiedBadge' | translate }}</ums-badge>
+            }
+          </div>
+          <p>{{ job.company }} &middot; {{ job.location }}</p>
+        </button>
+      </li>
+    }
+  </ul>
+</section>

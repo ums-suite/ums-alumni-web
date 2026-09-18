@@ -1,0 +1,46 @@
+@if (store.isLoading()) {
+  <p>{{ 'common.loading' | translate }}</p>
+} @else if (store.selected(); as job) {
+  <section class="alw-job-detail">
+    <div class="alw-job-detail__title-row">
+      <h1>{{ job.title }}</h1>
+      @if (isVerifiedEmployer()) {
+        <ums-badge variant="success">{{ 'jobs.verifiedBadge' | translate }}</ums-badge>
+      }
+      @if (job.status === 'PendingModeration') {
+        <ums-badge variant="warning">{{ 'jobs.pendingModeration' | translate }}</ums-badge>
+      }
+    </div>
+    <p>{{ job.company }} &middot; {{ job.location }}</p>
+    <p>{{ job.description }}</p>
+    <p>Contact: {{ job.contactMethod }}</p>
+
+    @if (job.status !== 'Published') {
+      <p role="status">{{ 'jobs.posting.closed' | translate }}</p>
+    }
+
+    @if (isOwner()) {
+      <ums-button type="button" variant="secondary" (click)="editJob()">Edit posting</ums-button>
+    } @else if (alreadyApplied()) {
+      <p role="status">{{ 'jobs.applied' | translate }}</p>
+    } @else if (canApply()) {
+      <form (submit)="$event.preventDefault(); apply()">
+        <label for="job-apply-note">Note to the poster (optional)</label>
+        <ums-textarea
+          id="job-apply-note"
+          [value]="note()"
+          (valueChange)="note.set($event)"
+          [rows]="3"
+        />
+        @if (applyError()) {
+          <p role="alert">{{ applyError() }}</p>
+        }
+        <ums-button type="submit" variant="primary" [loading]="applications.submitting()">
+          {{ 'jobs.apply' | translate }}
+        </ums-button>
+      </form>
+    }
+
+    <p><a routerLink="/app/jobs">Back to job board</a></p>
+  </section>
+}

@@ -1,0 +1,70 @@
+:host {
+  display: block;
+}
+
+.alw-confirming {
+  max-inline-size: 32rem;
+  margin-inline: auto;
+  padding: var(--space-10, 3rem) var(--space-6, 1.5rem);
+  text-align: center;
+
+  h1 {
+    font-family: var(--font-family-display, 'Fraunces', serif);
+  }
+}
+
+.alw-confirming__spinner {
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  margin-inline: auto;
+  margin-block-end: var(--space-4, 1rem);
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-secondary);
+  border-radius: 50%;
+  animation: alw-confirming-spin 0.9s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alw-confirming__spinner {
+    animation: none;
+  }
+}
+
+@keyframes alw-confirming-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// requirement-spec.md §7 / design-decisions.md's "Trust-Signal Design Pattern for the Payment
+// Moment": the ONE moment `--motion-hero`/`--ease-emphasized-in` are reserved for -- a genuine,
+// earned celebratory reveal, gated strictly on `isConfirmed()` (webhook-confirmed only).
+.alw-confirming--success {
+  animation: alw-confirming-reveal var(--motion-hero, 480ms) var(--ease-emphasized-in, ease-out);
+
+  h1 {
+    color: var(--color-accent-text);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alw-confirming--success {
+    animation: none;
+  }
+}
+
+@keyframes alw-confirming-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(1rem) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.alw-confirming--failed h1 {
+  color: var(--color-danger, #b91c1c);
+}

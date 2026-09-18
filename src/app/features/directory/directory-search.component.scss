@@ -1,0 +1,78 @@
+:host {
+  display: block;
+  padding: var(--space-6, 1.5rem);
+}
+
+h1 {
+  font-family: var(--font-family-display, 'Fraunces', serif);
+}
+
+.alw-directory__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4, 1rem);
+  align-items: end;
+  margin-block-end: var(--space-6, 1.5rem);
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1, 0.25rem);
+    font-size: var(--type-caption-font-size, 0.875rem);
+  }
+}
+
+.alw-directory__group {
+  margin-block-end: var(--space-8, 2rem);
+
+  h2 {
+    font-family: var(--font-family-display, 'Fraunces', serif);
+    color: var(--color-accent-text);
+    margin-block-end: var(--space-4, 1rem);
+  }
+}
+
+.alw-directory__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: var(--space-4, 1rem);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.alw-directory__card {
+  text-align: center;
+  padding: var(--space-4, 1rem);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-alt);
+}
+
+// "Campus-crest-style avatar framing" -- a gold ring evoking a convocation crest, per
+// requirement-spec.md §7's directory key-screen description.
+.alw-directory__crest {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--color-secondary),
+    var(--color-accent-text),
+    var(--color-secondary)
+  );
+  margin-block-end: var(--space-2, 0.5rem);
+}
+
+.alw-directory__employer,
+.alw-directory__location {
+  margin: 0;
+  font-size: var(--type-caption-font-size, 0.875rem);
+  color: var(--color-text-muted, var(--color-text));
+}
+
+.alw-directory__connect {
+  display: inline-block;
+  margin-block-start: var(--space-2, 0.5rem);
+  color: var(--color-accent-text);
+  font-weight: 600;
+  text-decoration: none;
+}

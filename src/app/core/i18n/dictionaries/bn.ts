@@ -1,0 +1,80 @@
+export const BN_DICTIONARY: Record<string, string> = {
+  'nav.directory': 'ডিরেক্টরি',
+  'nav.jobs': 'চাকরির খবর',
+  'nav.donations': 'দান করুন',
+  'nav.mentorship': 'মেন্টরশিপ',
+  'nav.events': 'ইভেন্ট',
+  'nav.chapters': 'চ্যাপ্টার',
+  'nav.stories': 'সাফল্যের গল্প',
+  'nav.profile': 'আমার প্রোফাইল',
+  'nav.login': 'লগ ইন',
+  'nav.logout': 'লগ আউট',
+
+  'directory.title': 'অ্যালামনাই ডিরেক্টরি',
+  'directory.classOf': '{year} ব্যাচ',
+  'directory.filter.graduationYear': 'স্নাতক বর্ষ',
+  'directory.filter.program': 'প্রোগ্রাম',
+  'directory.filter.location': 'অবস্থান',
+  'directory.filter.industry': 'শিল্প খাত',
+  'directory.empty': 'আপনার ফিল্টারের সাথে কোনো অ্যালামনাই মেলেনি।',
+  'directory.connect': 'যোগাযোগ করুন',
+  'directory.hiddenProfile': 'এই অ্যালামনাস ডিরেক্টরি অনুসন্ধানে না থাকা বেছে নিয়েছেন।',
+
+  'profile.visibility.title': 'প্রোফাইল দৃশ্যমানতা',
+  'profile.visibility.global.title': 'ডিরেক্টরি অনুসন্ধান থেকে আমার প্রোফাইল লুকান',
+  'profile.visibility.global.hint':
+    'নিচের প্রতি-ফিল্ড নিয়ন্ত্রণ থেকে আলাদা, সম্পূর্ণ চালু/বন্ধ সুইচ -- এটি চালু করলে আপনি ডিরেক্টরি অনুসন্ধান থেকে সম্পূর্ণভাবে সরে যাবেন।',
+  'profile.visibility.field.email': 'ইমেইল ঠিকানা',
+  'profile.visibility.field.phone': 'ফোন নম্বর',
+  'profile.visibility.field.employer': 'বর্তমান কর্মদাতা',
+  'profile.visibility.field.location': 'অবস্থান',
+  'profile.visibility.saved': 'দৃশ্যমানতা সেটিংস সংরক্ষিত হয়েছে।',
+  'profile.pendingVerification':
+    'আপনার প্রোফাইল অ্যাডমিন যাচাইয়ের অপেক্ষায় আছে এবং অনুমোদিত না হওয়া পর্যন্ত ডিরেক্টরি অনুসন্ধানে দেখা যাবে না।',
+
+  'jobs.title': 'চাকরির খবর',
+  'jobs.verifiedBadge': 'যাচাইকৃত নিয়োগকর্তা',
+  'jobs.pendingModeration': 'পর্যালোচনাধীন -- এখনও প্রকাশ্যে দৃশ্যমান নয়',
+  'jobs.apply': 'আবেদন করুন',
+  'jobs.applied': 'আবেদন করা হয়েছে',
+  'jobs.application.viewed': 'নিয়োগকর্তা দেখেছেন',
+  'jobs.application.notViewed': 'এখনও দেখা হয়নি',
+  'jobs.posting.closed': 'এই পোস্টিং বন্ধ হয়ে গেছে',
+
+  'donations.campaigns.title': 'ক্যাম্পেইন',
+  'donations.progress.raised': '{goal}-এর মধ্যে {amount} সংগৃহীত হয়েছে',
+  'donations.progress.donors': '{count} জন দাতা',
+  'donations.progress.unavailable': 'এই ক্যাম্পেইনের জন্য লাইভ অগ্রগতির তথ্য এখনো পাওয়া যায়নি।',
+  'donations.amount.title': 'একটি পরিমাণ নির্বাচন করুন',
+  'donations.amount.impact': 'এই উপহার প্রকৃত বৃত্তি এবং কর্মসূচিতে সহায়তা করে।',
+  'donations.fee.disclosure':
+    'আপনার দান আমাদের পেমেন্ট গেটওয়ে দ্বারা প্রক্রিয়া করা হয়। কোনো কার্ড বা মোবাইল ব্যাংকিং তথ্য এই সাইট দ্বারা সংরক্ষণ করা হয় না।',
+  'donations.anonymous.label':
+    'এই দানটি বেনামী করুন (শুধুমাত্র জনসাধারণের প্রদর্শনী থেকে আপনার নাম লুকায়)',
+  'donations.recurring.label': 'এটি একটি পুনরাবৃত্ত দান করুন',
+  'donations.recurring.interval': 'ফ্রিকোয়েন্সি',
+  'donations.confirming.title': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে',
+  'donations.confirming.body':
+    'আমরা গেটওয়ের সাথে আপনার পেমেন্ট যাচাই করছি। এটি মাত্র কিছুক্ষণ সময় নেবে -- অনুগ্রহ করে এই পৃষ্ঠাটি বন্ধ করবেন না।',
+  'donations.success.title': 'আপনার উদারতার জন্য ধন্যবাদ',
+  'donations.success.body':
+    'আপনার দান নিশ্চিত করা হয়েছে। একটি রসিদ আপনার দান ইতিহাসে পাওয়া যাবে।',
+  'donations.failed.title': 'আমরা এই পেমেন্ট নিশ্চিত করতে পারিনি',
+  'donations.failed.body': 'গেটওয়ে জানিয়েছে এই পেমেন্ট সফল হয়নি। কোনো চার্জ সম্পন্ন হয়নি।',
+  'donations.campaignClosed.title': 'এই ক্যাম্পেইন বন্ধ হয়ে গেছে',
+  'donations.campaignClosed.body':
+    'এই ক্যাম্পেইন আর নতুন দান গ্রহণ করছে না। আপনি পরিবর্তে আমাদের সাধারণ তহবিলে দান করতে পারেন।',
+  'donations.history.title': 'আমার দান',
+  'donations.recurring.paused.title': 'পেমেন্ট পদ্ধতি আপডেট করা প্রয়োজন',
+  'donations.recurring.paused.body':
+    'আপনার পুনরাবৃত্ত দান স্থগিত করা হয়েছে কারণ সাম্প্রতিক একটি চার্জ সফল হয়নি।',
+  'donations.recurring.resume': 'আবার দান শুরু করুন',
+  'donations.recurring.cancel': 'পুনরাবৃত্ত দান বাতিল করুন',
+
+  'common.loading': 'লোড হচ্ছে...',
+  'common.error.generic': 'কিছু ভুল হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।',
+  'common.retry': 'আবার চেষ্টা করুন',
+  'common.save': 'সংরক্ষণ করুন',
+  'common.cancel': 'বাতিল করুন',
+  'common.submit': 'জমা দিন',
+};

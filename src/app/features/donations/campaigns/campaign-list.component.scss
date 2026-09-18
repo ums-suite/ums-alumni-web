@@ -1,0 +1,49 @@
+:host {
+  display: block;
+  padding: var(--space-6, 1.5rem);
+}
+
+h1 {
+  font-family: var(--font-family-display, 'Fraunces', serif);
+  font-size: var(--type-display-2-font-size, 2.5rem);
+}
+
+.alw-campaigns__grid {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-6, 1.5rem) 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: var(--space-4, 1rem);
+}
+
+.alw-campaigns__card {
+  display: block;
+  padding: var(--space-4, 1rem);
+  border-radius: var(--radius-lg, var(--radius-md));
+  background: var(--color-surface-alt);
+  text-decoration: none;
+  color: inherit;
+
+  h2 {
+    font-family: var(--font-family-display, 'Fraunces', serif);
+    margin: 0 0 var(--space-2, 0.5rem);
+  }
+}
+
+.alw-campaigns__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2, 0.5rem);
+}
+
+.alw-campaigns__goal {
+  font-weight: 600;
+  color: var(--color-accent-text);
+}
+
+.alw-campaigns__unavailable {
+  font-size: var(--type-caption-font-size, 0.875rem);
+  color: var(--color-text-muted, var(--color-text));
+}
