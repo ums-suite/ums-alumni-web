@@ -56,19 +56,21 @@ describe('donation-confirmation.util', () => {
     });
 
     it('falls back to a timestamp+random key when crypto.randomUUID is unavailable', () => {
-      const original = Object.getOwnPropertyDescriptor(crypto, 'randomUUID');
-      // A plain `delete crypto.randomUUID` silently no-ops (the property isn't configurable via
-      // delete on some engines) -- Object.defineProperty is the reliable way to override a real
-      // browser API for one test, mirroring the platform's own established `navigator.
-      // serviceWorker` override pattern for the same class of problem.
+      // `crypto.randomUUID` is inherited from `Crypto.prototype`, not an own property of the
+      // `crypto` instance -- `Object.getOwnPropertyDescriptor(crypto, 'randomUUID')` returns
+      // `undefined`, so there is no "original own descriptor" to restore. Overriding it with
+      // `Object.defineProperty` (a plain `delete` silently no-ops on some engines for this exact
+      // reason) shadows the prototype method with an own property for this test only; `delete`ing
+      // that own property afterward naturally re-exposes the real prototype method again. This
+      // was a real bug caught by this exact test suite: an earlier draft tried to restore a
+      // (non-existent) own descriptor instead of deleting the shadowing override, which
+      // permanently broke `crypto.randomUUID` for every test running after this one.
       Object.defineProperty(crypto, 'randomUUID', { value: undefined, configurable: true });
       try {
         const key = generateIdempotencyKey();
         expect(key.startsWith('idempotency-')).toBeTrue();
       } finally {
-        if (original) {
-          Object.defineProperty(crypto, 'randomUUID', original);
-        }
+        delete (crypto as { randomUUID?: unknown }).randomUUID;
       }
     });
   });
