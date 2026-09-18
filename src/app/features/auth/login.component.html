@@ -1,0 +1,34 @@
+<section class="alw-login">
+  <h1>{{ 'nav.login' | translate }}</h1>
+
+  <form (submit)="$event.preventDefault(); submit()">
+    <ums-form-field label="Email or Student ID">
+      <ums-input
+        id="identifier"
+        name="identifier"
+        [value]="identifier()"
+        (valueChange)="identifier.set($event)"
+        autocomplete="username"
+      />
+    </ums-form-field>
+
+    <ums-form-field label="Password">
+      <ums-input
+        id="password"
+        name="password"
+        type="password"
+        [value]="password()"
+        (valueChange)="password.set($event)"
+        autocomplete="current-password"
+      />
+    </ums-form-field>
+
+    @if (errorMessage()) {
+      <p class="alw-login__error" role="alert">{{ errorMessage() }}</p>
+    }
+
+    <ums-button type="submit" variant="primary" [loading]="submitting()" [disabled]="submitting()">
+      {{ 'nav.login' | translate }}
+    </ums-button>
+  </form>
+</section>

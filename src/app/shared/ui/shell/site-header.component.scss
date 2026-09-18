@@ -1,0 +1,43 @@
+:host {
+  display: block;
+  background: var(--color-surface);
+  border-block-end: 1px solid var(--color-border);
+}
+
+.alw-site-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6, 1.5rem);
+  padding-inline: var(--space-6, 1.5rem);
+  padding-block: var(--space-4, 1rem);
+}
+
+.alw-site-header__brand {
+  font-family: var(--font-family-display, 'Fraunces', serif);
+  font-size: var(--type-heading-2-font-size, 1.5rem);
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.alw-site-header__nav {
+  display: flex;
+  gap: var(--space-4, 1rem);
+  flex: 1;
+
+  a {
+    color: var(--color-text-muted, var(--color-text));
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  a.alw-site-header__link--active {
+    color: var(--color-accent-text);
+  }
+}
+
+.alw-site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 0.5rem);
+}

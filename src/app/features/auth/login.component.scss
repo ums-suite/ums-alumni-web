@@ -1,0 +1,24 @@
+:host {
+  display: block;
+}
+
+.alw-login {
+  max-inline-size: 24rem;
+  margin-inline: auto;
+  padding: var(--space-8, 2rem) var(--space-4, 1rem);
+
+  h1 {
+    font-family: var(--font-family-display, 'Fraunces', serif);
+    margin-block-end: var(--space-6, 1.5rem);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4, 1rem);
+  }
+}
+
+.alw-login__error {
+  color: var(--color-danger, red);
+}

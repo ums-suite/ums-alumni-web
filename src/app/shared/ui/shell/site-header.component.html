@@ -1,0 +1,39 @@
+<header class="alw-site-header">
+  <a class="alw-site-header__brand" routerLink="/">UMS Alumni</a>
+
+  <nav class="alw-site-header__nav">
+    <a routerLink="/campaigns" routerLinkActive="alw-site-header__link--active">{{
+      'donations.campaigns.title' | translate
+    }}</a>
+    @if (isAuthenticated()) {
+      <a routerLink="/app/directory" routerLinkActive="alw-site-header__link--active">{{
+        'nav.directory' | translate
+      }}</a>
+      <a routerLink="/app/jobs" routerLinkActive="alw-site-header__link--active">{{
+        'nav.jobs' | translate
+      }}</a>
+      <a routerLink="/app/donations" routerLinkActive="alw-site-header__link--active">{{
+        'nav.donations' | translate
+      }}</a>
+      <a routerLink="/app/profile" routerLinkActive="alw-site-header__link--active">{{
+        'nav.profile' | translate
+      }}</a>
+    }
+  </nav>
+
+  <div class="alw-site-header__actions">
+    <ums-button type="button" variant="tertiary" (click)="toggleLocale()">
+      {{ globalStore.locale() === 'en' ? 'বাংলা' : 'English' }}
+    </ums-button>
+
+    @if (isAuthenticated()) {
+      <ums-button type="button" variant="secondary" (click)="logout()">
+        {{ 'nav.logout' | translate }}
+      </ums-button>
+    } @else {
+      <ums-button type="button" variant="primary" (click)="goToLogin()">
+        {{ 'nav.login' | translate }}
+      </ums-button>
+    }
+  </div>
+</header>

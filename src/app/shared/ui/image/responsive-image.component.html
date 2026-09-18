@@ -1,0 +1,11 @@
+<img
+  [src]="src()"
+  [attr.srcset]="srcset"
+  [sizes]="sizes()"
+  [attr.alt]="decorative() ? '' : alt()"
+  [attr.loading]="priority() ? null : 'lazy'"
+  [attr.fetchpriority]="priority() ? 'high' : null"
+  decoding="async"
+  (load)="onLoad()"
+  (error)="onError()"
+/>
