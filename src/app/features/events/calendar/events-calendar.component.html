@@ -1,0 +1,32 @@
+<section class="alw-events-calendar">
+  <h1>{{ 'events.calendar.title' | translate }}</h1>
+
+  @if (store.error()) {
+    <p role="alert">{{ store.error() }}</p>
+  }
+
+  @if (!store.isLoading() && store.calendar().length === 0) {
+    <ums-empty-state title="{{ 'events.calendar.empty' | translate }}" />
+  }
+
+  <ul class="alw-events-calendar__list">
+    @for (event of store.calendar(); track event.id) {
+      <li class="alw-events-calendar__card">
+        <h2>{{ event.title }}</h2>
+        <p class="alw-events-calendar__when">
+          {{ event.startAt | date: 'medium' }} &ndash; {{ event.endAt | date: 'medium' }}
+        </p>
+        @if (event.locationLabel) {
+          <p class="alw-events-calendar__location">{{ event.locationLabel }}</p>
+        }
+        <p>{{ event.body }}</p>
+      </li>
+    }
+  </ul>
+
+  @if (store.calendar().length > 0 && store.calendar().length < store.totalCount()) {
+    <ums-button type="button" variant="tertiary" [loading]="store.isLoading()" (click)="loadMore()">
+      {{ 'common.loadMore' | translate }}
+    </ums-button>
+  }
+</section>

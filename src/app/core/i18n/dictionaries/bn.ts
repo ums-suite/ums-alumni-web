@@ -91,7 +91,19 @@ export const BN_DICTIONARY: Record<string, string> = {
   'mentorship.matches.contactHidden':
     'কোনোটিই নয় -- একটি যোগাযোগ মাধ্যম শেয়ার করতে আপনার প্রোফাইল দৃশ্যমানতা সেটিংস আপডেট করুন।',
 
+  'events.calendar.title': 'ইভেন্ট ক্যালেন্ডার',
+  'events.calendar.empty': 'এই মুহূর্তে কোনো ইভেন্ট নির্ধারিত নেই।',
+  'events.rsvp.response': 'আপনার প্রতিক্রিয়া',
+  'events.rsvp.guestCount': 'আপনার সাথে যোগ দেওয়া অতিথি',
+  'events.rsvp.submit': 'RSVP জমা দিন',
+  'events.rsvp.confirmed': 'আপনার RSVP নিশ্চিত হয়েছে: {response}',
+  'events.rsvp.noCapacityLimit':
+    'এই ইভেন্টে কোনো ধারণক্ষমতার সীমা নেই -- আপনার RSVP সাথে সাথে নিশ্চিত হয়, কখনো ওয়েটলিস্টে যায় না।',
+  'events.recap.title': 'ইভেন্ট রিক্যাপ',
+  'events.recap.unavailable': 'পোস্ট-ইভেন্ট ছবি এবং রিক্যাপ এই অ্যাপে এখনো উপলব্ধ নয়।',
+
   'common.loading': 'লোড হচ্ছে...',
+  'common.loadMore': 'আরও লোড করুন',
   'common.error.generic': 'কিছু ভুল হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।',
   'common.retry': 'আবার চেষ্টা করুন',
   'common.save': 'সংরক্ষণ করুন',

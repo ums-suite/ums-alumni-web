@@ -120,6 +120,28 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'events',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/events/calendar/events-calendar.component').then(
+            (m) => m.EventsCalendarComponent,
+          ),
+      },
+      {
+        path: 'events/:alumniEventId/rsvp',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/events/rsvp/event-rsvp.component').then((m) => m.EventRsvpComponent),
+      },
+      {
+        path: 'events/:alumniEventId/recap',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/events/post-event/post-event-recap.component').then(
+            (m) => m.PostEventRecapComponent,
+          ),
+      },
+      {
         path: 'donations/new/:campaignId',
         canActivate: [alumnusLinkedGuard],
         loadComponent: () =>

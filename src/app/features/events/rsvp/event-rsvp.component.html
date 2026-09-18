@@ -1,0 +1,50 @@
+<section class="alw-event-rsvp">
+  @if (store.error()) {
+    <p role="alert">{{ store.error() }}</p>
+  }
+
+  @if (store.selectedEvent(); as event) {
+    <h1>{{ event.title }}</h1>
+    @if (event.description) {
+      <p>{{ event.description }}</p>
+    }
+    <p class="alw-event-rsvp__date">{{ event.eventDate | date: 'medium' }}</p>
+
+    <p class="alw-event-rsvp__no-waitlist" role="note">
+      {{ 'events.rsvp.noCapacityLimit' | translate }}
+    </p>
+
+    @if (store.myRsvp(); as rsvp) {
+      <p class="alw-event-rsvp__confirmed" role="status">
+        {{ 'events.rsvp.confirmed' | translate: { response: rsvp.response } }}
+      </p>
+    } @else {
+      <form class="alw-event-rsvp__form" (submit)="$event.preventDefault(); submitRsvp()">
+        <label for="rsvp-response">
+          {{ 'events.rsvp.response' | translate }}
+          <ums-select
+            id="rsvp-response"
+            [options]="responseOptions"
+            [value]="response()"
+            (valueChange)="response.set($event)"
+          />
+        </label>
+        <label for="rsvp-guests">
+          {{ 'events.rsvp.guestCount' | translate }}
+          <ums-input
+            id="rsvp-guests"
+            type="number"
+            [value]="guestCount()"
+            (valueChange)="guestCount.set($event)"
+          />
+        </label>
+        @if (submitError()) {
+          <p role="alert">{{ submitError() }}</p>
+        }
+        <ums-button type="submit" variant="primary" [loading]="isSubmitting()">
+          {{ 'events.rsvp.submit' | translate }}
+        </ums-button>
+      </form>
+    }
+  }
+</section>

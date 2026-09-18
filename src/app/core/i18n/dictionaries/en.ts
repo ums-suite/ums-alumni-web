@@ -92,7 +92,19 @@ export const EN_DICTIONARY: Record<string, string> = {
   'mentorship.matches.contactHidden':
     'None -- update your profile visibility settings to share a contact channel.',
 
+  'events.calendar.title': 'Events Calendar',
+  'events.calendar.empty': 'No events are scheduled right now.',
+  'events.rsvp.response': 'Your response',
+  'events.rsvp.guestCount': 'Guests joining you',
+  'events.rsvp.submit': 'Submit RSVP',
+  'events.rsvp.confirmed': 'Your RSVP is confirmed: {response}',
+  'events.rsvp.noCapacityLimit':
+    'This event does not enforce a capacity limit -- your RSVP is confirmed instantly, never waitlisted.',
+  'events.recap.title': 'Event Recap',
+  'events.recap.unavailable': 'Post-event photos and recaps are not yet available in this app.',
+
   'common.loading': 'Loading...',
+  'common.loadMore': 'Load more',
   'common.error.generic': 'Something went wrong. Please try again.',
   'common.retry': 'Retry',
   'common.save': 'Save',
