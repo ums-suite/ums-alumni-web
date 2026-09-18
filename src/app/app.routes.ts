@@ -142,6 +142,22 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'chapters',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/chapters/list/chapter-list.component').then(
+            (m) => m.ChapterListComponent,
+          ),
+      },
+      {
+        path: 'chapters/:chapterId',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/chapters/detail/chapter-detail.component').then(
+            (m) => m.ChapterDetailComponent,
+          ),
+      },
+      {
         path: 'donations/new/:campaignId',
         canActivate: [alumnusLinkedGuard],
         loadComponent: () =>

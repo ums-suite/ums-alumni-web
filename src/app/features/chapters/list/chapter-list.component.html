@@ -1,0 +1,32 @@
+<section class="alw-chapter-list">
+  <h1>{{ 'chapters.title' | translate }}</h1>
+
+  @if (store.error()) {
+    <p role="alert">{{ store.error() }}</p>
+  }
+
+  @if (!store.isLoading() && store.items().length === 0) {
+    <ums-empty-state title="{{ 'chapters.empty' | translate }}" />
+  }
+
+  <ul class="alw-chapter-list__grid">
+    @for (chapter of store.items(); track chapter.id) {
+      <li
+        class="alw-chapter-list__card"
+        [class]="accentClass(chapter.id)"
+        [routerLink]="['/app/chapters', chapter.id]"
+      >
+        <h2>{{ chapter.name }}</h2>
+        @if (chapter.region) {
+          <ums-badge variant="info">{{ chapter.region }}</ums-badge>
+        }
+        @if (chapter.description) {
+          <p>{{ chapter.description }}</p>
+        }
+        <p class="alw-chapter-list__members">
+          {{ 'chapters.memberCount' | translate: { count: chapter.memberCount } }}
+        </p>
+      </li>
+    }
+  </ul>
+</section>

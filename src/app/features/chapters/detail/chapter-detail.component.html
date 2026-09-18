@@ -1,0 +1,40 @@
+<section class="alw-chapter-detail">
+  @if (store.error()) {
+    <p role="alert">{{ store.error() }}</p>
+  }
+
+  @if (store.selected(); as chapter) {
+    <header class="alw-chapter-detail__banner" [class]="accentClass()">
+      <h1>{{ chapter.name }}</h1>
+      @if (chapter.region) {
+        <p>{{ chapter.region }}</p>
+      }
+    </header>
+
+    @if (chapter.description) {
+      <p>{{ chapter.description }}</p>
+    }
+    <p class="alw-chapter-detail__members">
+      {{ 'chapters.memberCount' | translate: { count: chapter.memberCount } }}
+    </p>
+
+    @if (actionError()) {
+      <p role="alert">{{ actionError() }}</p>
+    }
+
+    @if (isMember()) {
+      <ums-button type="button" variant="tertiary" [loading]="isBusy()" (click)="leave()">
+        {{ 'chapters.leave' | translate }}
+      </ums-button>
+    } @else {
+      <ums-button type="button" variant="primary" [loading]="isBusy()" (click)="join()">
+        {{ 'chapters.join' | translate }}
+      </ums-button>
+    }
+
+    <section class="alw-chapter-detail__feed">
+      <h2>{{ 'chapters.feed.title' | translate }}</h2>
+      <p role="note">{{ 'chapters.feed.unavailable' | translate }}</p>
+    </section>
+  }
+</section>

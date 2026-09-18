@@ -103,6 +103,15 @@ export const EN_DICTIONARY: Record<string, string> = {
   'events.recap.title': 'Event Recap',
   'events.recap.unavailable': 'Post-event photos and recaps are not yet available in this app.',
 
+  'chapters.title': 'Alumni Chapters',
+  'chapters.empty': 'No chapters exist yet.',
+  'chapters.memberCount': '{count} members',
+  'chapters.join': 'Join Chapter',
+  'chapters.leave': 'Leave Chapter',
+  'chapters.feed.title': 'Chapter Events & News',
+  'chapters.feed.unavailable':
+    'A chapter-scoped event and news feed is not yet available -- there is no way today to list this chapter’s events.',
+
   'common.loading': 'Loading...',
   'common.loadMore': 'Load more',
   'common.error.generic': 'Something went wrong. Please try again.',

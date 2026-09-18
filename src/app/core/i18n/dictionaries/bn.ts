@@ -102,6 +102,15 @@ export const BN_DICTIONARY: Record<string, string> = {
   'events.recap.title': 'ইভেন্ট রিক্যাপ',
   'events.recap.unavailable': 'পোস্ট-ইভেন্ট ছবি এবং রিক্যাপ এই অ্যাপে এখনো উপলব্ধ নয়।',
 
+  'chapters.title': 'অ্যালামনাই চ্যাপ্টার',
+  'chapters.empty': 'এখনো কোনো চ্যাপ্টার নেই।',
+  'chapters.memberCount': '{count} জন সদস্য',
+  'chapters.join': 'চ্যাপ্টারে যোগ দিন',
+  'chapters.leave': 'চ্যাপ্টার ত্যাগ করুন',
+  'chapters.feed.title': 'চ্যাপ্টার ইভেন্ট ও সংবাদ',
+  'chapters.feed.unavailable':
+    'একটি চ্যাপ্টার-নির্দিষ্ট ইভেন্ট ও সংবাদ ফিড এখনো উপলব্ধ নয় -- এই চ্যাপ্টারের ইভেন্টগুলো তালিকাভুক্ত করার কোনো উপায় এখন নেই।',
+
   'common.loading': 'লোড হচ্ছে...',
   'common.loadMore': 'আরও লোড করুন',
   'common.error.generic': 'কিছু ভুল হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।',
