@@ -1,0 +1,54 @@
+<section class="alw-notification-center">
+  <header class="alw-notification-center__header">
+    <h1>
+      {{ 'notifications.title' | translate }}
+      @if (store.unreadCount() > 0) {
+        <ums-badge variant="danger">{{ store.unreadCount() }}</ums-badge>
+      }
+    </h1>
+    <div class="alw-notification-center__actions">
+      <a routerLink="/app/notifications/preferences">{{
+        'notifications.preferencesLink' | translate
+      }}</a>
+      @if (store.unreadCount() > 0) {
+        <ums-button type="button" variant="tertiary" (click)="markAllRead()">
+          {{ 'notifications.markAllRead' | translate }}
+        </ums-button>
+      }
+    </div>
+  </header>
+
+  @if (store.error()) {
+    <p role="alert">{{ store.error() }}</p>
+  }
+
+  @if (!store.isLoading() && store.items().length === 0) {
+    <ums-empty-state title="{{ 'notifications.empty' | translate }}" />
+  }
+
+  <ul class="alw-notification-center__list">
+    @for (item of store.items(); track item.id) {
+      <li
+        class="alw-notification-center__item"
+        [class.alw-notification-center__item--unread]="!item.readAt"
+      >
+        <div>
+          @if (item.renderedSubject) {
+            <p class="alw-notification-center__subject">{{ item.renderedSubject }}</p>
+          }
+          @if (item.renderedBody) {
+            <p>{{ item.renderedBody }}</p>
+          }
+          <p class="alw-notification-center__meta">
+            {{ item.channel }} &middot; {{ item.createdAt | date: 'medium' }}
+          </p>
+        </div>
+        @if (!item.readAt) {
+          <ums-button type="button" variant="tertiary" (click)="markRead(item.id)">
+            {{ 'notifications.markRead' | translate }}
+          </ums-button>
+        }
+      </li>
+    }
+  </ul>
+</section>

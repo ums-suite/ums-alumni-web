@@ -6,6 +6,7 @@ export const EN_DICTIONARY: Record<string, string> = {
   'nav.events': 'Events',
   'nav.chapters': 'Chapters',
   'nav.stories': 'Success Stories',
+  'nav.notifications': 'Notifications',
   'nav.profile': 'My Profile',
   'nav.login': 'Log In',
   'nav.logout': 'Log Out',
@@ -114,6 +115,19 @@ export const EN_DICTIONARY: Record<string, string> = {
 
   'stories.title': 'Success Stories',
   'stories.empty': 'No success stories are published yet.',
+
+  'notifications.title': 'Notifications',
+  'notifications.empty': 'No notifications yet.',
+  'notifications.markRead': 'Mark as read',
+  'notifications.markAllRead': 'Mark all as read',
+  'notifications.preferencesLink': 'Email digest preferences',
+  'notifications.digest.title': 'Email Digest Preferences',
+  'notifications.digest.disclosure':
+    'These preferences are saved to this browser only for now -- they are not yet sent to or honored by the notification delivery system.',
+  'notifications.digest.jobMatches': 'Job matches',
+  'notifications.digest.eventReminders': 'Event reminders',
+  'notifications.digest.mentorshipRequests': 'Mentorship requests',
+  'notifications.digest.campaignUpdates': 'Campaign updates',
 
   'common.loading': 'Loading...',
   'common.loadMore': 'Load more',

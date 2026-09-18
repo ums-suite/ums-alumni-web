@@ -6,6 +6,7 @@ export const BN_DICTIONARY: Record<string, string> = {
   'nav.events': 'ইভেন্ট',
   'nav.chapters': 'চ্যাপ্টার',
   'nav.stories': 'সাফল্যের গল্প',
+  'nav.notifications': 'বিজ্ঞপ্তি',
   'nav.profile': 'আমার প্রোফাইল',
   'nav.login': 'লগ ইন',
   'nav.logout': 'লগ আউট',
@@ -113,6 +114,19 @@ export const BN_DICTIONARY: Record<string, string> = {
 
   'stories.title': 'সাফল্যের গল্প',
   'stories.empty': 'এখনো কোনো সাফল্যের গল্প প্রকাশিত হয়নি।',
+
+  'notifications.title': 'বিজ্ঞপ্তি',
+  'notifications.empty': 'এখনো কোনো বিজ্ঞপ্তি নেই।',
+  'notifications.markRead': 'পঠিত হিসেবে চিহ্নিত করুন',
+  'notifications.markAllRead': 'সব পঠিত হিসেবে চিহ্নিত করুন',
+  'notifications.preferencesLink': 'ইমেইল ডাইজেস্ট পছন্দসমূহ',
+  'notifications.digest.title': 'ইমেইল ডাইজেস্ট পছন্দসমূহ',
+  'notifications.digest.disclosure':
+    'এই পছন্দগুলো আপাতত শুধুমাত্র এই ব্রাউজারে সংরক্ষিত হয় -- এগুলো এখনো বিজ্ঞপ্তি প্রেরণ ব্যবস্থায় পাঠানো বা মানা হয় না।',
+  'notifications.digest.jobMatches': 'চাকরির মিল',
+  'notifications.digest.eventReminders': 'ইভেন্ট রিমাইন্ডার',
+  'notifications.digest.mentorshipRequests': 'মেন্টরশিপ অনুরোধ',
+  'notifications.digest.campaignUpdates': 'ক্যাম্পেইন আপডেট',
 
   'common.loading': 'লোড হচ্ছে...',
   'common.loadMore': 'আরও লোড করুন',

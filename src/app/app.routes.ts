@@ -172,6 +172,22 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'notifications',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/notifications/center/notification-center.component').then(
+            (m) => m.NotificationCenterComponent,
+          ),
+      },
+      {
+        path: 'notifications/preferences',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/notifications/preferences/notification-preferences.component').then(
+            (m) => m.NotificationPreferencesComponent,
+          ),
+      },
+      {
         path: 'donations/new/:campaignId',
         canActivate: [alumnusLinkedGuard],
         loadComponent: () =>
