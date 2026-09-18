@@ -1,0 +1,32 @@
+<section class="alw-job-editor">
+  <h1>{{ isEditMode() ? 'Edit posting' : 'Post a job' }}</h1>
+
+  <form (submit)="$event.preventDefault(); save()">
+    <ums-form-field label="Title">
+      <ums-input [value]="title()" (valueChange)="title.set($event)" required />
+    </ums-form-field>
+    <ums-form-field label="Company">
+      <ums-input [value]="company()" (valueChange)="company.set($event)" required />
+    </ums-form-field>
+    <ums-form-field label="Description">
+      <ums-textarea [value]="description()" (valueChange)="description.set($event)" [rows]="5" />
+    </ums-form-field>
+    <ums-form-field label="Location">
+      <ums-input [value]="location()" (valueChange)="location.set($event)" required />
+    </ums-form-field>
+    <ums-form-field label="How should applicants contact you?">
+      <ums-input [value]="contactMethod()" (valueChange)="contactMethod.set($event)" required />
+    </ums-form-field>
+    <ums-form-field label="Applications close on">
+      <ums-date-picker [value]="expiresAt()" (valueChange)="expiresAt.set($event ?? '')" />
+    </ums-form-field>
+
+    @if (errorMessage()) {
+      <p role="alert">{{ errorMessage() }}</p>
+    }
+
+    <ums-button type="submit" variant="primary" [loading]="saving()" [disabled]="saving()">
+      {{ 'common.save' | translate }}
+    </ums-button>
+  </form>
+</section>

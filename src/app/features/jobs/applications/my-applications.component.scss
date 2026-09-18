@@ -1,0 +1,34 @@
+:host {
+  display: block;
+  padding: var(--space-6, 1.5rem);
+}
+
+h1 {
+  font-family: var(--font-family-display, 'Fraunces', serif);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 0.75rem);
+}
+
+li {
+  padding: var(--space-3, 0.75rem);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-alt);
+}
+
+.alw-my-applications__closed {
+  margin-inline-start: var(--space-2, 0.5rem);
+  color: var(--color-danger, red);
+  font-size: var(--type-caption-font-size, 0.875rem);
+}
+
+.alw-my-applications__submitted {
+  margin: var(--space-1, 0.25rem) 0 0;
+  font-size: var(--type-caption-font-size, 0.875rem);
+  color: var(--color-text-muted, var(--color-text));
+}

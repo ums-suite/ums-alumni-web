@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  padding: var(--space-6, 1.5rem);
+}
+
+.alw-jobs__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: var(--space-4, 1rem);
+
+  h1 {
+    font-family: var(--font-family-display, 'Fraunces', serif);
+  }
+}
+
+.alw-jobs__list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4, 1rem) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 0.75rem);
+}
+
+.alw-jobs__card {
+  cursor: pointer;
+  display: block;
+  inline-size: 100%;
+  text-align: start;
+  border: none;
+  font: inherit;
+  color: inherit;
+  padding: var(--space-4, 1rem);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-alt);
+
+  h2 {
+    margin: 0;
+    font-size: var(--type-heading-3-font-size, 1.125rem);
+  }
+
+  p {
+    margin: var(--space-1, 0.25rem) 0 0;
+    color: var(--color-text-muted, var(--color-text));
+  }
+}
+
+.alw-jobs__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 0.5rem);
+}

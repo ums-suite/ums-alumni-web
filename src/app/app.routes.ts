@@ -63,6 +63,38 @@ export const routes: Routes = [
             (m) => m.ProfileEditComponent,
           ),
       },
+      {
+        path: 'jobs',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/jobs/postings/job-list.component').then((m) => m.JobListComponent),
+      },
+      {
+        path: 'jobs/new',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/jobs/postings/job-editor.component').then((m) => m.JobEditorComponent),
+      },
+      {
+        path: 'jobs/mine/applications',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/jobs/applications/my-applications.component').then(
+            (m) => m.MyApplicationsComponent,
+          ),
+      },
+      {
+        path: 'jobs/:jobId/edit',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/jobs/postings/job-editor.component').then((m) => m.JobEditorComponent),
+      },
+      {
+        path: 'jobs/:jobId',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/jobs/postings/job-detail.component').then((m) => m.JobDetailComponent),
+      },
     ],
   },
   {

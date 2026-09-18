@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  padding: var(--space-6, 1.5rem);
+  max-inline-size: 32rem;
+  margin-inline: auto;
+}
+
+h1 {
+  font-family: var(--font-family-display, 'Fraunces', serif);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4, 1rem);
+}
