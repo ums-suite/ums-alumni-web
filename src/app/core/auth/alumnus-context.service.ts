@@ -2,7 +2,7 @@ import { Injectable, computed, inject, signal } from '@angular/core';
 import type { UmsApiError } from '@ums/shared';
 import { Observable, catchError, map, of, tap } from 'rxjs';
 import { AlumnusProfileApi } from '../http/alumnus-profile.api';
-import type { AlumnusDto } from '../http/alumnus-profile.types';
+import type { AlumnusDto, UpdateOwnProfileRequest } from '../http/alumnus-profile.types';
 
 /**
  * ALMW-4: the Alumni-scoped authorization boundary this app's own session is held to.
@@ -86,6 +86,13 @@ export class AlumnusContextService {
   applyUpdatedProfile(profile: AlumnusDto): void {
     this.profileInternal.set(profile);
     this.notLinkedInternal.set(false);
+  }
+
+  /** ALMW-8/ALMW-10: saves profile-editable fields and per-field/global visibility settings in one call. */
+  updateProfile(request: UpdateOwnProfileRequest): Observable<AlumnusDto> {
+    return this.api
+      .updateMyProfile(request)
+      .pipe(tap((profile) => this.applyUpdatedProfile(profile)));
   }
 
   reset(): void {

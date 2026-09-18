@@ -1,0 +1,20 @@
+<section class="alw-registration">
+  @if (context.loading()) {
+    <p>Checking your alumni record...</p>
+  } @else {
+    <h1>Linking your alumni account</h1>
+    <p>
+      Your alumni profile is created automatically once your graduation record is processed by the
+      Registrar. This usually happens shortly after your final results are published -- there is
+      nothing further for you to submit here.
+    </p>
+    <p>If you graduated a while ago and still see this message, please check again:</p>
+
+    <ums-button type="button" variant="primary" (click)="recheck()"> Check again </ums-button>
+
+    <p class="alw-registration__recovery">
+      Already have an alumni account under a different login?
+      <a routerLink="/register/recovery">Get help recovering it</a>.
+    </p>
+  }
+</section>

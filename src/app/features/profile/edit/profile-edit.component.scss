@@ -1,0 +1,69 @@
+:host {
+  display: block;
+  padding: var(--space-6, 1.5rem);
+}
+
+.alw-profile-edit__pending {
+  background: var(--color-warning-surface, #fff7e6);
+  color: var(--color-warning-text, #92600c);
+  padding: var(--space-3, 0.75rem) var(--space-4, 1rem);
+  border-radius: var(--radius-md);
+  margin-block-end: var(--space-4, 1rem);
+}
+
+.alw-profile-edit__columns {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-8, 2rem);
+
+  @media (width <= 48rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.alw-profile-edit__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4, 1rem);
+
+  h1 {
+    font-family: var(--font-family-display, 'Fraunces', serif);
+  }
+}
+
+.alw-profile-edit__readonly {
+  color: var(--color-text-muted, var(--color-text));
+  font-size: var(--type-caption-font-size, 0.875rem);
+}
+
+.alw-profile-edit__check {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 0.5rem);
+  font-size: var(--type-caption-font-size, 0.875rem);
+}
+
+.alw-profile-edit__check--global {
+  font-weight: 600;
+}
+
+.alw-profile-edit__hint {
+  font-size: var(--type-caption-font-size, 0.875rem);
+  color: var(--color-text-muted, var(--color-text));
+}
+
+.alw-profile-edit__preview {
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  padding: var(--space-4, 1rem);
+
+  h2 {
+    font-family: var(--font-family-display, 'Fraunces', serif);
+    font-size: var(--type-heading-3-font-size, 1.125rem);
+  }
+}
+
+.alw-profile-edit__hidden-note {
+  color: var(--color-accent-text);
+  font-size: var(--type-caption-font-size, 0.875rem);
+}

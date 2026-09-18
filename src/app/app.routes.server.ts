@@ -17,6 +17,14 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Client,
   },
   {
+    path: 'register',
+    renderMode: RenderMode.Client,
+  },
+  {
+    path: 'register/recovery',
+    renderMode: RenderMode.Client,
+  },
+  {
     path: '**',
     renderMode: RenderMode.Server,
   },

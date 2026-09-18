@@ -67,6 +67,6 @@ describe('alumnusLinkedGuard', () => {
       .expectOne(`${apiBaseUrl}/api/v1/alumni/profile`)
       .flush({ title: 'alumnus.not_found' }, { status: 404, statusText: 'Not Found' });
 
-    expect(await resultPromise).toEqual(router.createUrlTree(['/register/recovery']));
+    expect(await resultPromise).toEqual(router.createUrlTree(['/register']));
   });
 });

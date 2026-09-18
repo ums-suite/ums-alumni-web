@@ -1,0 +1,99 @@
+@if (!context.profile()) {
+  <p>{{ 'common.loading' | translate }}</p>
+} @else {
+  <section class="alw-profile-edit">
+    @if (context.isPendingVerification()) {
+      <p class="alw-profile-edit__pending" role="status">
+        {{ 'profile.pendingVerification' | translate }}
+      </p>
+    }
+
+    <div class="alw-profile-edit__columns">
+      <form class="alw-profile-edit__form" (submit)="$event.preventDefault(); save()">
+        <h1>Edit your profile</h1>
+
+        <p class="alw-profile-edit__readonly">Class of {{ context.profile()?.graduationYear }}</p>
+
+        <ums-form-field label="Bio">
+          <ums-textarea [value]="bio()" (valueChange)="bio.set($event)" [rows]="4" />
+        </ums-form-field>
+
+        <ums-form-field label="{{ 'profile.visibility.field.employer' | translate }}">
+          <ums-input [value]="currentEmployer()" (valueChange)="currentEmployer.set($event)" />
+        </ums-form-field>
+        <label class="alw-profile-edit__check">
+          <input
+            type="checkbox"
+            [checked]="hideCurrentEmployer()"
+            (change)="hideCurrentEmployer.set($any($event.target).checked)"
+          />
+          Hide my current employer from other alumni
+        </label>
+
+        <ums-form-field label="{{ 'profile.visibility.field.location' | translate }}">
+          <ums-input [value]="location()" (valueChange)="location.set($event)" />
+        </ums-form-field>
+
+        <ums-form-field label="{{ 'profile.visibility.field.email' | translate }}">
+          <ums-input
+            type="email"
+            [value]="contactEmail()"
+            (valueChange)="contactEmail.set($event)"
+          />
+        </ums-form-field>
+
+        <ums-form-field label="{{ 'profile.visibility.field.phone' | translate }}">
+          <ums-input [value]="contactPhone()" (valueChange)="contactPhone.set($event)" />
+        </ums-form-field>
+        <label class="alw-profile-edit__check">
+          <input
+            type="checkbox"
+            [checked]="hideContactDetails()"
+            (change)="hideContactDetails.set($any($event.target).checked)"
+          />
+          Hide my email and phone from other alumni
+        </label>
+
+        <hr />
+
+        <label class="alw-profile-edit__check alw-profile-edit__check--global">
+          <input
+            type="checkbox"
+            [checked]="isPublic()"
+            (change)="isPublic.set($any($event.target).checked)"
+          />
+          {{ 'profile.visibility.global.title' | translate }}
+        </label>
+        <p class="alw-profile-edit__hint">{{ 'profile.visibility.global.hint' | translate }}</p>
+
+        @if (errorMessage()) {
+          <p role="alert">{{ errorMessage() }}</p>
+        }
+
+        <ums-button type="submit" variant="primary" [loading]="saving()" [disabled]="saving()">
+          {{ 'common.save' | translate }}
+        </ums-button>
+      </form>
+
+      <aside class="alw-profile-edit__preview">
+        <h2>What other alumni see</h2>
+        <p>Class of {{ context.profile()?.graduationYear }}</p>
+        @if (preview().currentEmployer) {
+          <p>{{ preview().currentEmployer }}</p>
+        }
+        @if (preview().location) {
+          <p>{{ preview().location }}</p>
+        }
+        @if (preview().contactEmail) {
+          <p>{{ preview().contactEmail }}</p>
+        }
+        @if (preview().contactPhone) {
+          <p>{{ preview().contactPhone }}</p>
+        }
+        @if (!isPublic()) {
+          <p class="alw-profile-edit__hidden-note">{{ 'directory.hiddenProfile' | translate }}</p>
+        }
+      </aside>
+    </div>
+  </section>
+}

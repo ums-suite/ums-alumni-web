@@ -18,7 +18,7 @@ export const alumnusLinkedGuard: CanActivateFn = () => {
     .ensureLoaded()
     .pipe(
       map(() =>
-        context.notLinked() ? router.createUrlTree([AUTH_ROUTES.registrationRecovery]) : true,
+        context.notLinked() ? router.createUrlTree([AUTH_ROUTES.registrationPending]) : true,
       ),
     );
 };

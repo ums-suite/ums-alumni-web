@@ -109,6 +109,30 @@ describe('AlumnusContextService', () => {
     expect(service.profile()).toEqual(dto);
   });
 
+  it('updateProfile PUTs the request and applies the returned profile', () => {
+    let result: unknown;
+    service
+      .updateProfile({
+        currentEmployer: 'New Co',
+        bio: null,
+        location: null,
+        contactEmail: null,
+        contactPhone: null,
+        hideCurrentEmployer: false,
+        hideContactDetails: false,
+        visibility: 'Public',
+      })
+      .subscribe((profile) => (result = profile));
+
+    const req = httpMock.expectOne(`${apiBaseUrl}/api/v1/alumni/profile`);
+    expect(req.request.method).toBe('PUT');
+    expect(req.request.body.currentEmployer).toBe('New Co');
+    req.flush({ ...dto, currentEmployer: 'New Co', profileVisibility: 'Public' });
+
+    expect((result as typeof dto).currentEmployer).toBe('New Co');
+    expect(service.profile()?.currentEmployer).toBe('New Co');
+  });
+
   it('reset clears all state back to initial', () => {
     service.load();
     httpMock.expectOne(`${apiBaseUrl}/api/v1/alumni/profile`).flush(dto);
