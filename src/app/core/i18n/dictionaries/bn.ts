@@ -111,6 +111,9 @@ export const BN_DICTIONARY: Record<string, string> = {
   'chapters.feed.unavailable':
     'একটি চ্যাপ্টার-নির্দিষ্ট ইভেন্ট ও সংবাদ ফিড এখনো উপলব্ধ নয় -- এই চ্যাপ্টারের ইভেন্টগুলো তালিকাভুক্ত করার কোনো উপায় এখন নেই।',
 
+  'stories.title': 'সাফল্যের গল্প',
+  'stories.empty': 'এখনো কোনো সাফল্যের গল্প প্রকাশিত হয়নি।',
+
   'common.loading': 'লোড হচ্ছে...',
   'common.loadMore': 'আরও লোড করুন',
   'common.error.generic': 'কিছু ভুল হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।',

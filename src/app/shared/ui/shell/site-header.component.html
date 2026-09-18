@@ -5,6 +5,9 @@
     <a routerLink="/campaigns" routerLinkActive="alw-site-header__link--active">{{
       'donations.campaigns.title' | translate
     }}</a>
+    <a routerLink="/stories" routerLinkActive="alw-site-header__link--active">{{
+      'nav.stories' | translate
+    }}</a>
     @if (isAuthenticated()) {
       <a routerLink="/app/directory" routerLinkActive="alw-site-header__link--active">{{
         'nav.directory' | translate

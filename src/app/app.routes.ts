@@ -30,6 +30,20 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'stories',
+    loadComponent: () =>
+      import('./features/success-stories/list/success-stories-list.component').then(
+        (m) => m.SuccessStoriesListComponent,
+      ),
+  },
+  {
+    path: 'stories/:storyId',
+    loadComponent: () =>
+      import('./features/success-stories/detail/success-story-detail.component').then(
+        (m) => m.SuccessStoryDetailComponent,
+      ),
+  },
+  {
     path: 'login',
     canActivate: [guestGuard],
     loadComponent: () => import('./features/auth/login.component').then((m) => m.LoginComponent),

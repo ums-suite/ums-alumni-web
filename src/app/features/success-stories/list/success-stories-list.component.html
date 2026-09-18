@@ -1,0 +1,22 @@
+<section class="alw-stories-list">
+  <h1>{{ 'stories.title' | translate }}</h1>
+
+  @if (store.error()) {
+    <p role="alert">{{ store.error() }}</p>
+  }
+
+  @if (!store.isLoading() && store.items().length === 0) {
+    <ums-empty-state title="{{ 'stories.empty' | translate }}" />
+  }
+
+  <ul class="alw-stories-list__grid">
+    @for (story of store.items(); track story.id) {
+      <li class="alw-stories-list__card">
+        <a [routerLink]="['/stories', story.id]">
+          <h2>{{ story.title }}</h2>
+          <p class="alw-stories-list__excerpt">{{ excerptOf(story.body) }}</p>
+        </a>
+      </li>
+    }
+  </ul>
+</section>

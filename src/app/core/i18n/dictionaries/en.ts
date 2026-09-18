@@ -112,6 +112,9 @@ export const EN_DICTIONARY: Record<string, string> = {
   'chapters.feed.unavailable':
     'A chapter-scoped event and news feed is not yet available -- there is no way today to list this chapter’s events.',
 
+  'stories.title': 'Success Stories',
+  'stories.empty': 'No success stories are published yet.',
+
   'common.loading': 'Loading...',
   'common.loadMore': 'Load more',
   'common.error.generic': 'Something went wrong. Please try again.',
