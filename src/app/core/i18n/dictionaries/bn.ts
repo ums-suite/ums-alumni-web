@@ -71,6 +71,26 @@ export const BN_DICTIONARY: Record<string, string> = {
   'donations.recurring.resume': 'আবার দান শুরু করুন',
   'donations.recurring.cancel': 'পুনরাবৃত্ত দান বাতিল করুন',
 
+  'mentorship.title': 'মেন্টরশিপ',
+  'mentorship.optin.title': 'মেন্টর প্রোফাইল',
+  'mentorship.optin.expertise': 'দক্ষতার ক্ষেত্র',
+  'mentorship.optin.capacity': 'আপনি কতজন মেন্টি নিতে পারবেন?',
+  'mentorship.optin.availability': 'উপলব্ধতা (ঐচ্ছিক)',
+  'mentorship.optin.submit': 'মেন্টর হন',
+  'mentorship.optin.summary': 'আপনার ঘোষিত দক্ষতা: {expertise}',
+  'mentorship.capacity.available': '{limit}টির মধ্যে {active}টি মেন্টি স্লট ব্যবহৃত।',
+  'mentorship.capacity.full':
+    'আপনি সর্বোচ্চ ধারণক্ষমতায় আছেন -- একটি স্লট খালি না হওয়া পর্যন্ত আপনাকে নতুন মিল প্রস্তাব করা হবে না।',
+  'mentorship.matches.title': 'আমার ম্যাচসমূহ',
+  'mentorship.matches.filter': 'অবস্থা অনুসারে ফিল্টার করুন',
+  'mentorship.matches.empty': 'এখনো কোনো মেন্টরশিপ ম্যাচ নেই।',
+  'mentorship.matches.pendingSince': '{date} থেকে অপেক্ষমাণ',
+  'mentorship.matches.accept': 'গ্রহণ করুন',
+  'mentorship.matches.end': 'মেন্টরশিপ শেষ করুন',
+  'mentorship.matches.contactPreview': 'আপনার মেন্টি এই যোগাযোগ মাধ্যমগুলো দেখতে পাবে:',
+  'mentorship.matches.contactHidden':
+    'কোনোটিই নয় -- একটি যোগাযোগ মাধ্যম শেয়ার করতে আপনার প্রোফাইল দৃশ্যমানতা সেটিংস আপডেট করুন।',
+
   'common.loading': 'লোড হচ্ছে...',
   'common.error.generic': 'কিছু ভুল হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।',
   'common.retry': 'আবার চেষ্টা করুন',

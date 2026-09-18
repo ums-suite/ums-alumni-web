@@ -72,6 +72,26 @@ export const EN_DICTIONARY: Record<string, string> = {
   'donations.recurring.resume': 'Resume giving',
   'donations.recurring.cancel': 'Cancel recurring donation',
 
+  'mentorship.title': 'Mentorship',
+  'mentorship.optin.title': 'Mentor Profile',
+  'mentorship.optin.expertise': 'Areas of expertise',
+  'mentorship.optin.capacity': 'How many mentees can you take on?',
+  'mentorship.optin.availability': 'Availability (optional)',
+  'mentorship.optin.submit': 'Become a mentor',
+  'mentorship.optin.summary': 'Your declared expertise: {expertise}',
+  'mentorship.capacity.available': '{active} of {limit} mentee slots in use.',
+  'mentorship.capacity.full':
+    'You are at capacity -- no new matches will be proposed to you until a slot frees up.',
+  'mentorship.matches.title': 'My Matches',
+  'mentorship.matches.filter': 'Filter by status',
+  'mentorship.matches.empty': 'No mentorship matches yet.',
+  'mentorship.matches.pendingSince': 'Pending since {date}',
+  'mentorship.matches.accept': 'Accept',
+  'mentorship.matches.end': 'End mentorship',
+  'mentorship.matches.contactPreview': 'Your mentee will see these contact channels:',
+  'mentorship.matches.contactHidden':
+    'None -- update your profile visibility settings to share a contact channel.',
+
   'common.loading': 'Loading...',
   'common.error.generic': 'Something went wrong. Please try again.',
   'common.retry': 'Retry',

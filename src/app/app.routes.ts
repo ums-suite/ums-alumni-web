@@ -112,6 +112,14 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'mentorship',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/mentorship/browse/mentorship-browse.component').then(
+            (m) => m.MentorshipBrowseComponent,
+          ),
+      },
+      {
         path: 'donations/new/:campaignId',
         canActivate: [alumnusLinkedGuard],
         loadComponent: () =>
