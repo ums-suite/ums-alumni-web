@@ -1,0 +1,48 @@
+:host {
+  display: block;
+  padding: var(--space-6, 1.5rem);
+}
+
+h1 {
+  font-family: var(--font-family-display, 'Fraunces', serif);
+}
+
+// Asymmetric editorial grid (requirement-spec.md §3.7/§7) -- image + pull-quote stacked in a
+// narrower left column, full body text in a wider right column, collapsing to a single column on
+// narrow viewports. No established convention elsewhere in the suite to mirror; designed fresh
+// here with plain CSS Grid and this app's own token/logical-property conventions.
+.alw-story-detail__grid {
+  display: grid;
+  grid-template-columns: minmax(14rem, 1fr) minmax(20rem, 2fr);
+  grid-template-areas: 'image text' 'quote text';
+  gap: var(--space-6, 1.5rem);
+  align-items: start;
+
+  @media (width <= 56rem) {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'image' 'quote' 'text';
+  }
+}
+
+.alw-story-detail__image {
+  grid-area: image;
+  max-inline-size: 12rem;
+}
+
+.alw-story-detail__pullquote {
+  grid-area: quote;
+  margin: 0;
+  padding-inline-start: var(--space-4, 1rem);
+  border-inline-start: 4px solid var(--color-secondary);
+  font-family: var(--font-family-display, 'Fraunces', serif);
+  font-size: var(--type-display-2-font-size, 1.5rem);
+  color: var(--color-accent-text);
+}
+
+.alw-story-detail__text {
+  grid-area: text;
+
+  p {
+    white-space: pre-line;
+  }
+}

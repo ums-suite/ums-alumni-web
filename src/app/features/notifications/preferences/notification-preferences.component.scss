@@ -1,0 +1,28 @@
+:host {
+  display: block;
+  padding: var(--space-6, 1.5rem);
+}
+
+h1 {
+  font-family: var(--font-family-display, 'Fraunces', serif);
+}
+
+.alw-notification-preferences__disclosure {
+  color: var(--color-text-muted, var(--color-text));
+  font-size: var(--type-caption-font-size, 0.875rem);
+  max-inline-size: 32rem;
+}
+
+.alw-notification-preferences__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 0.75rem);
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2, 0.5rem);
+  }
+}

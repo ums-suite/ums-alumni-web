@@ -1,0 +1,21 @@
+<section class="alw-notification-preferences">
+  <h1>{{ 'notifications.digest.title' | translate }}</h1>
+  <p class="alw-notification-preferences__disclosure" role="note">
+    {{ 'notifications.digest.disclosure' | translate }}
+  </p>
+
+  <ul class="alw-notification-preferences__list">
+    @for (row of rows; track row.category) {
+      <li>
+        <label>
+          <input
+            type="checkbox"
+            [checked]="store.preferences()[row.category]"
+            (change)="toggle(row.category)"
+          />
+          {{ row.labelKey | translate }}
+        </label>
+      </li>
+    }
+  </ul>
+</section>

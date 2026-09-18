@@ -1,0 +1,50 @@
+:host {
+  display: block;
+  padding: var(--space-6, 1.5rem);
+}
+
+h1,
+h2 {
+  font-family: var(--font-family-display, 'Fraunces', serif);
+}
+
+.alw-chapter-detail__banner {
+  padding: var(--space-6, 1.5rem);
+  border-radius: var(--radius-md);
+  margin-block-end: var(--space-4, 1rem);
+  background: var(--color-secondary);
+  color: var(--color-on-secondary, var(--color-text));
+
+  &--accent-1 {
+    background: var(--color-info);
+    color: var(--color-on-info, var(--color-text));
+  }
+
+  &--accent-2 {
+    background: var(--color-success);
+    color: var(--color-on-success, var(--color-text));
+  }
+
+  &--accent-3 {
+    background: var(--color-warning);
+    color: var(--color-on-warning, var(--color-text));
+  }
+
+  h1 {
+    margin-block-start: 0;
+  }
+}
+
+.alw-chapter-detail__members {
+  font-size: var(--type-caption-font-size, 0.875rem);
+  color: var(--color-text-muted, var(--color-text));
+}
+
+.alw-chapter-detail__feed {
+  margin-block-start: var(--space-8, 2rem);
+
+  p {
+    color: var(--color-text-muted, var(--color-text));
+    font-size: var(--type-caption-font-size, 0.875rem);
+  }
+}

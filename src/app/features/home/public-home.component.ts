@@ -6,8 +6,10 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
 /**
  * ALMW-1/ALMW-6: the public, anonymous, SSR-rendered landing page -- proves the hybrid SSR/CSR
  * route split end-to-end (this route renders via `RenderMode.Server`, per `app.routes.server.ts`).
- * A later ticket batch (ALMW-22, Success Stories) replaces this with the full editorial landing;
- * for now this is the real entry point into the public campaign-browsing surface (ALMW-14).
+ * ALMW-22 (Success Stories) links out to `/stories` from here rather than replacing this page
+ * outright -- a full editorial-landing redesign of the homepage itself is a larger, separate
+ * design decision this ticket doesn't force; this remains the entry point into both the public
+ * campaign-browsing surface (ALMW-14) and the Success Stories feed.
  */
 @Component({
   selector: 'alw-public-home',

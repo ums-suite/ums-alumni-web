@@ -1,0 +1,37 @@
+:host {
+  display: block;
+  padding: var(--space-6, 1.5rem);
+}
+
+h1 {
+  font-family: var(--font-family-display, 'Fraunces', serif);
+}
+
+.alw-event-rsvp__date {
+  font-size: var(--type-caption-font-size, 0.875rem);
+  color: var(--color-text-muted, var(--color-text));
+}
+
+.alw-event-rsvp__no-waitlist {
+  font-size: var(--type-caption-font-size, 0.875rem);
+  color: var(--color-text-muted, var(--color-text));
+}
+
+.alw-event-rsvp__confirmed {
+  color: var(--color-success-text, var(--color-text));
+  font-weight: 600;
+}
+
+.alw-event-rsvp__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4, 1rem);
+  max-inline-size: 24rem;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1, 0.25rem);
+    font-size: var(--type-caption-font-size, 0.875rem);
+  }
+}

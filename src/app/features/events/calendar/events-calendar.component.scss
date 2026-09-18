@@ -1,0 +1,35 @@
+:host {
+  display: block;
+  padding: var(--space-6, 1.5rem);
+}
+
+h1 {
+  font-family: var(--font-family-display, 'Fraunces', serif);
+}
+
+.alw-events-calendar__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: var(--space-4, 1rem);
+  list-style: none;
+  padding: 0;
+  margin-block-start: var(--space-4, 1rem);
+}
+
+.alw-events-calendar__card {
+  padding: var(--space-4, 1rem);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-alt);
+
+  h2 {
+    font-family: var(--font-family-display, 'Fraunces', serif);
+    margin-block-start: 0;
+  }
+}
+
+.alw-events-calendar__when,
+.alw-events-calendar__location {
+  margin: 0;
+  font-size: var(--type-caption-font-size, 0.875rem);
+  color: var(--color-text-muted, var(--color-text));
+}

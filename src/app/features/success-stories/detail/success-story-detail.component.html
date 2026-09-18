@@ -1,0 +1,22 @@
+<section class="alw-story-detail">
+  @if (store.error()) {
+    <p role="alert">{{ store.error() }}</p>
+  }
+
+  @if (store.selected(); as story) {
+    <article class="alw-story-detail__grid">
+      <div class="alw-story-detail__image">
+        <ums-asset name="illustration-celebratory" [decorative]="true" />
+      </div>
+
+      <blockquote class="alw-story-detail__pullquote">
+        {{ excerptOf(story.body, 220) }}
+      </blockquote>
+
+      <div class="alw-story-detail__text">
+        <h1>{{ story.title }}</h1>
+        <p>{{ story.body }}</p>
+      </div>
+    </article>
+  }
+</section>

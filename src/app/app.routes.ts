@@ -30,6 +30,20 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'stories',
+    loadComponent: () =>
+      import('./features/success-stories/list/success-stories-list.component').then(
+        (m) => m.SuccessStoriesListComponent,
+      ),
+  },
+  {
+    path: 'stories/:storyId',
+    loadComponent: () =>
+      import('./features/success-stories/detail/success-story-detail.component').then(
+        (m) => m.SuccessStoryDetailComponent,
+      ),
+  },
+  {
     path: 'login',
     canActivate: [guestGuard],
     loadComponent: () => import('./features/auth/login.component').then((m) => m.LoginComponent),
@@ -109,6 +123,68 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./features/donations/history/donation-history.component').then(
             (m) => m.DonationHistoryComponent,
+          ),
+      },
+      {
+        path: 'mentorship',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/mentorship/browse/mentorship-browse.component').then(
+            (m) => m.MentorshipBrowseComponent,
+          ),
+      },
+      {
+        path: 'events',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/events/calendar/events-calendar.component').then(
+            (m) => m.EventsCalendarComponent,
+          ),
+      },
+      {
+        path: 'events/:alumniEventId/rsvp',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/events/rsvp/event-rsvp.component').then((m) => m.EventRsvpComponent),
+      },
+      {
+        path: 'events/:alumniEventId/recap',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/events/post-event/post-event-recap.component').then(
+            (m) => m.PostEventRecapComponent,
+          ),
+      },
+      {
+        path: 'chapters',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/chapters/list/chapter-list.component').then(
+            (m) => m.ChapterListComponent,
+          ),
+      },
+      {
+        path: 'chapters/:chapterId',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/chapters/detail/chapter-detail.component').then(
+            (m) => m.ChapterDetailComponent,
+          ),
+      },
+      {
+        path: 'notifications',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/notifications/center/notification-center.component').then(
+            (m) => m.NotificationCenterComponent,
+          ),
+      },
+      {
+        path: 'notifications/preferences',
+        canActivate: [alumnusLinkedGuard],
+        loadComponent: () =>
+          import('./features/notifications/preferences/notification-preferences.component').then(
+            (m) => m.NotificationPreferencesComponent,
           ),
       },
       {

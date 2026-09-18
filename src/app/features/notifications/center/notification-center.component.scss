@@ -1,0 +1,59 @@
+:host {
+  display: block;
+  padding: var(--space-6, 1.5rem);
+}
+
+h1 {
+  font-family: var(--font-family-display, 'Fraunces', serif);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 0.5rem);
+}
+
+.alw-notification-center__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4, 1rem);
+}
+
+.alw-notification-center__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4, 1rem);
+}
+
+.alw-notification-center__list {
+  list-style: none;
+  padding: 0;
+  margin-block-start: var(--space-4, 1rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2, 0.5rem);
+}
+
+.alw-notification-center__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4, 1rem);
+  padding: var(--space-4, 1rem);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-alt);
+
+  &--unread {
+    border-inline-start: 4px solid var(--color-secondary);
+  }
+}
+
+.alw-notification-center__subject {
+  font-weight: 600;
+  margin: 0;
+}
+
+.alw-notification-center__meta {
+  font-size: var(--type-caption-font-size, 0.875rem);
+  color: var(--color-text-muted, var(--color-text));
+  margin: 0;
+}

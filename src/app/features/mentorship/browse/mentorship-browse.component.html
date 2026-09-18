@@ -1,0 +1,140 @@
+<section class="alw-mentorship">
+  <h1>{{ 'mentorship.title' | translate }}</h1>
+
+  <section class="alw-mentorship__optin">
+    <h2>{{ 'mentorship.optin.title' | translate }}</h2>
+
+    @if (store.myOptIn(); as optIn) {
+      <p class="alw-mentorship__optin-status">
+        {{ 'mentorship.optin.summary' | translate: { expertise: optIn.expertiseAreas } }}
+      </p>
+      @if (hasCapacity()) {
+        <p class="alw-mentorship__capacity alw-mentorship__capacity--ok">
+          {{
+            'mentorship.capacity.available'
+              | translate: { active: optIn.activeCount, limit: optIn.capacityLimit }
+          }}
+        </p>
+      } @else {
+        <p class="alw-mentorship__capacity alw-mentorship__capacity--full" role="status">
+          {{ 'mentorship.capacity.full' | translate }}
+        </p>
+      }
+    } @else {
+      <form class="alw-mentorship__optin-form" (submit)="$event.preventDefault(); submitOptIn()">
+        <label for="mentorship-expertise">
+          {{ 'mentorship.optin.expertise' | translate }}
+          <ums-input
+            id="mentorship-expertise"
+            [value]="expertiseAreas()"
+            (valueChange)="expertiseAreas.set($event)"
+            placeholder="e.g. Software Engineering, Product Management"
+          />
+        </label>
+        <label for="mentorship-capacity">
+          {{ 'mentorship.optin.capacity' | translate }}
+          <ums-input
+            id="mentorship-capacity"
+            type="number"
+            [value]="capacityLimit()"
+            (valueChange)="capacityLimit.set($event)"
+          />
+        </label>
+        <label for="mentorship-availability">
+          {{ 'mentorship.optin.availability' | translate }}
+          <ums-textarea
+            id="mentorship-availability"
+            [value]="availability()"
+            (valueChange)="availability.set($event)"
+            [rows]="2"
+          />
+        </label>
+        @if (optInError()) {
+          <p role="alert">{{ optInError() }}</p>
+        }
+        <ums-button type="submit" variant="primary" [loading]="isOptingIn()">
+          {{ 'mentorship.optin.submit' | translate }}
+        </ums-button>
+      </form>
+    }
+  </section>
+
+  <section class="alw-mentorship__matches">
+    <div class="alw-mentorship__matches-header">
+      <h2>{{ 'mentorship.matches.title' | translate }}</h2>
+      <label for="mentorship-status-filter">
+        {{ 'mentorship.matches.filter' | translate }}
+        <ums-select
+          id="mentorship-status-filter"
+          [options]="statusOptions"
+          [value]="statusFilter()"
+          (valueChange)="statusFilter.set($event)"
+        />
+      </label>
+    </div>
+
+    @if (store.error()) {
+      <p role="alert">{{ store.error() }}</p>
+    }
+    @if (actionError()) {
+      <p role="alert">{{ actionError() }}</p>
+    }
+
+    @if (!store.isLoading() && filteredMatches().length === 0) {
+      <ums-empty-state title="{{ 'mentorship.matches.empty' | translate }}" />
+    }
+
+    <ul class="alw-mentorship__grid">
+      @for (match of filteredMatches(); track match.id) {
+        <li class="alw-mentorship__card">
+          <ums-badge [variant]="badgeVariant(match.status)">{{ match.status }}</ums-badge>
+
+          @if (match.status === 'Proposed') {
+            <p class="alw-mentorship__pending">
+              {{ 'mentorship.matches.pendingSince' | translate: { date: pendingSince(match) } }}
+            </p>
+          }
+
+          @if (awaitingMyAcceptance(match)) {
+            <ums-button
+              type="button"
+              variant="primary"
+              [loading]="acceptingMatchId() === match.id"
+              (click)="acceptMatch(match)"
+            >
+              {{ 'mentorship.matches.accept' | translate }}
+            </ums-button>
+          }
+
+          @if (visibleContactPreview(match); as preview) {
+            <div class="alw-mentorship__preview">
+              <p>{{ 'mentorship.matches.contactPreview' | translate }}</p>
+              <ul>
+                @if (preview.email) {
+                  <li>{{ preview.email }}</li>
+                }
+                @if (preview.phone) {
+                  <li>{{ preview.phone }}</li>
+                }
+                @if (!preview.email && !preview.phone) {
+                  <li>{{ 'mentorship.matches.contactHidden' | translate }}</li>
+                }
+              </ul>
+            </div>
+          }
+
+          @if (match.status === 'Active') {
+            <ums-button
+              type="button"
+              variant="tertiary"
+              [loading]="endingMatchId() === match.id"
+              (click)="endMatch(match)"
+            >
+              {{ 'mentorship.matches.end' | translate }}
+            </ums-button>
+          }
+        </li>
+      }
+    </ul>
+  </section>
+</section>

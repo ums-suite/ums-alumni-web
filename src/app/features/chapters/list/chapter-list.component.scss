@@ -1,0 +1,46 @@
+:host {
+  display: block;
+  padding: var(--space-6, 1.5rem);
+}
+
+h1,
+h2 {
+  font-family: var(--font-family-display, 'Fraunces', serif);
+}
+
+.alw-chapter-list__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: var(--space-4, 1rem);
+  list-style: none;
+  padding: 0;
+  margin-block-start: var(--space-4, 1rem);
+}
+
+// Themed accent WITHIN the single brand (requirement-spec.md §10 item 3, §7) -- a top border in
+// one of the existing shared design-system tokens, deterministically chosen per chapter
+// (chapter-accent.util.ts), never a per-chapter re-skin or a fabricated color field.
+.alw-chapter-list__card {
+  cursor: pointer;
+  padding: var(--space-4, 1rem);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-alt);
+  border-block-start: 4px solid var(--color-secondary);
+
+  &--accent-1 {
+    border-block-start-color: var(--color-info);
+  }
+
+  &--accent-2 {
+    border-block-start-color: var(--color-success);
+  }
+
+  &--accent-3 {
+    border-block-start-color: var(--color-warning);
+  }
+}
+
+.alw-chapter-list__members {
+  font-size: var(--type-caption-font-size, 0.875rem);
+  color: var(--color-text-muted, var(--color-text));
+}
